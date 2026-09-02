@@ -19,4 +19,20 @@ pipeline {
             }
         }
     } 
+
+    post {
+        unstable {
+            emailext(
+                subject: "UNSTABLE: ${JOB_NAME} #${BUILD_NUMBER}",
+                body: """
+                    The Jenkins build is unstable.
+
+                    Job: ${JOB_NAME}
+                    Build: #${BUILD_NUMBER}
+                    URL: ${BUILD_URL}
+                """,
+                to: "your-email@example.com"
+            )
+        }
+    }
 }
