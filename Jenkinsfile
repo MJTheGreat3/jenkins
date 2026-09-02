@@ -30,7 +30,8 @@ pipeline {
                     Job: ${JOB_NAME}
                     Build: #${BUILD_NUMBER}
                 """,
-                to: "mjzeal2005@gmail.com"
+                to: "mjzeal2005@gmail.com",
+                recipientProviders: []
             )
         }
     }
