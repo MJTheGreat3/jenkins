@@ -1,60 +1,22 @@
-pipeline {
+pipeline { 
     agent any
-
     stages {
-        stage('Checkout') {
+        stage('Clone Git') {
             steps {
-                echo "Checkout the source code from the Git repository"
-                //git 'https://github.com/yourusername/yourrepository.git'
+                git 'https://github.com/BThangaraju/Jenkins.git'
             }
         }
-
-        stage('Build') {
+        stage('Build Code') {
             steps {
-                echo "Execute build commands or scripts"
-                //sh 'your-build-command-or-script.sh'
+                sh "chmod u+x Prog1.py"
+                sh "./Prog1.py"
             }
         }
-
-        stage('Test') {
+     stage('Test Code') {
             steps {
-                echo "Execute test commands or scripts"
-                //sh 'your-test-command-or-script.sh'
+                sh "chmod u+x Test.py"
+                sh "./Test.py"
             }
         }
-
-        stage('Staging') {
-            steps {
-                echo "Copy artifacts to a staging area (e.g., for further testing)"
-                //sh 'cp -r build/* staging/'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                echo "Deploy artifacts to a production server or environment"
-                //sh 'your-deployment-command-or-script.sh'
-            }
-        }
-
-        stage('Monitor') {
-            steps {
-                echo "Perform monitoring and verification tasks"
-                //sh 'your-monitoring-command-or-script.sh'
-            }
-        }
-    }
-
-    post {
-        success {
-            // This block executes if the pipeline is successful
-            echo 'Deployment was successful!'
-            // Add any additional success actions here
-        }
-        failure {
-            // This block executes if the pipeline fails
-            echo ' failed!'
-            // Add any failure actions or notifications here
-        }
-    }
-}   
+    } 
+}
