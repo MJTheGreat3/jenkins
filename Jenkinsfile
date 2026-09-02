@@ -29,7 +29,6 @@ pipeline {
 
                     Job: ${JOB_NAME}
                     Build: #${BUILD_NUMBER}
-                    URL: ${BUILD_URL}
                 """,
                 to: "mjzeal2005@gmail.com"
             )
