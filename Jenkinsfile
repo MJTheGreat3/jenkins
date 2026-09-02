@@ -31,7 +31,7 @@ pipeline {
                     Build: #${BUILD_NUMBER}
                     URL: ${BUILD_URL}
                 """,
-                to: "your-email@example.com"
+                to: "mjzeal2005@gmail.com"
             )
         }
     }
