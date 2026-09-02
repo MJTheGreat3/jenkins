@@ -21,7 +21,7 @@ pipeline {
     } 
 
     post {
-        unstable {
+        failure {
             emailext(
                 subject: "UNSTABLE: ${JOB_NAME} #${BUILD_NUMBER}",
                 body: """
